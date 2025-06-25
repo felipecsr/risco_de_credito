@@ -86,7 +86,6 @@ pip install -r requirements.txt
 
 ## 👨‍💻 Autor
 
-Felipe Reis  
-[LinkedIn](https://www.linkedin.com/in/felipecsr) • contato: felipecsr@gmail.com
+Felipe Reis • [LinkedIn](https://www.linkedin.com/in/felipecsr) • Contato: felipecsr@gmail.com
 
 > Projeto com fins educacionais. Inspirado em desafios reais de risco de crédito.
