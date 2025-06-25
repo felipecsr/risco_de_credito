@@ -11,7 +11,7 @@ risco_de_credito/
 ├── data/
 │   ├── 1_raw/            # Dados brutos (Kaggle)
 │   ├── 2_trusted/        # Dados tratados (ETL)
-│   └── 3_refined/        # Base final para modelagem
+│   └── 3_refined/        # Base final para modelagem + dicionario de dados
 ├── relatorio_executivo/  # Relatório de achados e sugestões de ação
 └── notebook.ipynb        # Notebook principal da análise
 ```
@@ -57,7 +57,13 @@ As variáveis mais importantes se relacionam com:
 
 - AUC: **0.7304**
 - Modelo com boa capacidade de identificar inadimplentes, mesmo com dataset desbalanceado
-- Conjunto `refined` com variáveis transformadas e prontas para aplicação
+- Conjunto `refined` com variáveis transformadas e prontas para aplicação + dicionario de dados
+
+---
+
+## 🧠 Relatório Executivo
+
+- [Relatório Executivo](/relatorio_executivo/teste.txt) com achados e sugestões de ações
 
 ---
 
