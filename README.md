@@ -10,11 +10,24 @@ Este projeto tem como objetivo desenvolver um pipeline de ciência de dados para
 risco_de_credito/
 ├── data/
 │   ├── 1_raw/            # Dados brutos (Kaggle)
-│   ├── 2_trusted/        # Dados tratados (ETL)
+│   ├── 2_trusted/        # Dados tratados (vazios e tipos)
 │   └── 3_refined/        # Base final para modelagem + dicionario de dados
-├── relatorio_executivo/  # Relatório de achados e sugestões de ação
+├── relatorio_executivo/  # Relatório executivo com relato de etapas e achados
 └── notebook.ipynb        # Notebook principal da análise
 ```
+
+---
+
+##  🔗 Dados do projeto
+
+- Dados obtidos da [competição pública do Kaggle](https://www.kaggle.com/competitions/home-credit-credit-risk-model-stability)
+
+
+```bash
+kaggle competitions download -c home-credit-credit-risk-model-stability
+```
+
+> Comando para terminal, após criação da conta na plataforma e solicitação de API key (json local)
 
 ---
 
@@ -36,14 +49,16 @@ Esses arquivos foram integrados via `case_id` e processados até gerar a base `r
 - Seleção de variáveis numéricas mais correlacionadas com a inadimplência
 
 ### 3. Análise Exploratória (EDA)
-- Análise da distribuição do target (`inadimplente`: ~3%)
-- Estudo de correlação entre variáveis numéricas e categóricas com `target`
+- Análise da distribuição do target (`inadimplente`: ~3%) (forte desbalanceamento)
 - Diagnóstico de completude e tipos de variáveis
+- Estudo de correlação entre variáveis numéricas e categóricas com `target`
+
 
 ### 4. Modelagem Preditiva
 Modelos treinados com validação hold-out:
 - **Regressão Logística** (baseline): AUC ≈ 0.70
-- **LightGBM** (modelo principal): AUC ≈ 0.73 | Recall da classe 1 ≈ 62%
+- **LightGBM** (modelo principal): AUC ≈ 0.73
+> O modelo LightGBM identificou cerca de 62% dos inadimplentes (recall da classe 1), mesmo em um cenário com forte desbalanceamento.
 
 ### 5. Interpretação e Insights
 As variáveis mais importantes se relacionam com:
@@ -55,26 +70,22 @@ As variáveis mais importantes se relacionam com:
 
 ## ✅ Resultados
 
-- AUC: **0.7304**
-- Modelo com boa capacidade de identificar inadimplentes, mesmo com dataset desbalanceado
-- Conjunto `refined` com variáveis transformadas e prontas para aplicação + dicionario de dados
+- AUC: **0.7304** | F1-score: **0.12**
+- O modelo demonstrou boa capacidade de distinguir inadimplentes, mesmo com forte desbalanceamento de classes.
+- A base refined.csv contém variáveis tratadas e selecionadas, acompanhada de um dicionário de dados para referência.
 
 ---
 
 ## 🧠 Relatório Executivo
 
-- [Relatório Executivo](/relatorio_executivo/teste.txt) com achados e sugestões de ações
+- [Relatório Executivo](/relatorio_executivo/relatorio_executivo.pdf) com etapas do projeto e achados.
 
 ---
 
 ## 📌 Requisitos
 
-- Python 3.8+
-- Bibliotecas:
-  - pandas, numpy, matplotlib, seaborn
-  - scikit-learn, lightgbm
-
-Para instalar todas:
+- Python (pandas, numpy, matplotlib, seaborn, scikit-learn, lightgbm)
+- Jupyter Notebook
 
 ```bash
 pip install -r requirements.txt
@@ -87,6 +98,7 @@ pip install -r requirements.txt
 - Ajuste de hiperparâmetros e tuning
 - Uso de técnicas de balanceamento supervisionado (SMOTE, etc.)
 - Avaliação com outras métricas de negócio (ex: custo real da inadimplência)
+- Adição, cruzamento e verificação de correlação de outras variáveis disponíveis em `raw data` 
 
 ---
 
@@ -94,4 +106,11 @@ pip install -r requirements.txt
 
 Felipe Reis • [LinkedIn](https://www.linkedin.com/in/felipecsr) • Contato: felipecsr@gmail.com
 
-> Projeto com fins educacionais. Inspirado em desafios reais de risco de crédito.
+> *Projeto com fins educacionais. Inspirado em desafios reais de risco de crédito.*
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob os termos da **[GNU General Public License v3.0 (GPL-3.0)](https://www.gnu.org/licenses/gpl-3.0.html)**.  
+Você é livre para usar, modificar e distribuir este código, desde que mantenha a mesma licença e os créditos de autoria.
