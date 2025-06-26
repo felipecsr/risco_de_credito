@@ -12,8 +12,9 @@ risco_de_credito/
 │   ├── 1_raw/            # Dados brutos (Kaggle)
 │   ├── 2_trusted/        # Dados tratados (vazios e tipos)
 │   └── 3_refined/        # Base final para modelagem + dicionario de dados
-├── relatorio_executivo/  # Relatório executivo com relato de etapas e achados
-└── notebook.ipynb        # Notebook principal da análise
+├── notebook/             # Notebook principal da análise
+└── relatorio_executivo/  # Relatório executivo com relato de etapas e achados
+ 
 ```
 
 ---
